@@ -3,7 +3,6 @@ package Pages;
 
 import BasePage.BaseClass;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

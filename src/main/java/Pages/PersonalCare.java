@@ -2,6 +2,7 @@ package Pages;
 
 import BasePage.BaseClass;
 import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -18,16 +19,18 @@ public class PersonalCare extends BaseClass {
     WebElement clickproduct;
 
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView\n")
-   public WebElement addbtn;
+    public WebElement addbtn;
 
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"\u200E\u200F\u200E\u200E\u200E\u200E\u200E\u200F\u200E\u200F\u200F\u200F\u200E\u200E\u200E\u200E\u200E\u200E\u200F\u200E\u200E\u200F\u200E\u200E\u200E\u200E\u200F\u200F\u200F\u200F\u200F\u200F\u200F\u200F\u200F\u200F\u200E\u200F\u200E\u200E\u200E\u200F\u200F\u200E\u200F\u200E\u200E\u200E\u200F\u200F\u200E\u200E\u200E\u200F\u200F\u200F\u200F\u200E\u200F\u200E\u200E\u200E\u200E\u200F\u200F\u200E\u200F\u200F\u200E\u200F\u200E\u200E\u200F\u200E\u200E\u200F\u200E\u200E\u200E\u200E\u200E\u200E\u200F\u200E\u200F\u200E\u200E\u200E\u200E\u200F\u200F\u200F\u200E\u200E\u200E\u200E\u200ENavigate up\u200E\u200F\u200E\u200E\u200F\u200E\"]\n")
     public WebElement backbtn;
+
 
     public PersonalCare() {
         PageFactory.initElements(driver, this);
     }
 
     public void clickPersonalCare() {
+
         PersonalCare.click();
     }
 
@@ -36,12 +39,16 @@ public class PersonalCare extends BaseClass {
     }
 
     public void addTocartbtn() {
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"ADD\"));"));
+        WaitForElementToBeVisiable(addbtn, 5);
         addbtn.click();
     }
 
     public void backbtn() {
-
-        backbtn.click();
+        for (int i = 0; i < 2; i++) {
+            WaitForElementToBeVisiable(backbtn, 10);
+            backbtn.click();
+        }
 
     }
 }

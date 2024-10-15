@@ -1,7 +1,6 @@
 import BasePage.BaseClass;
 import Pages.LoginPage;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestLoginPage extends BaseClass {

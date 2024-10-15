@@ -21,14 +21,13 @@ public class BaseClass {
     public void Initilition() {
         prop = new Properties();
         try {
-            FileInputStream fis = new FileInputStream("C:\\Users\\acer\\Desktop\\java\\Bridzelabz_softwareTesting_manual_Automation_MobileTesting\\HimlayWellnessMobileAppTestingusingEmulator\\src\\main\\java\\Config\\AppConfig.properties");
+            FileInputStream fis = new FileInputStream(
+                    "C:\\Users\\acer\\Desktop\\java\\Bridzelabz_softwareTesting_manual_Automation_MobileTesting\\HimlayWellnessMobileAppTestingusingEmulator\\src\\main\\java\\Config\\AppConfig.properties");
             prop.load(fis);
 
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         DesiredCapabilities capabilities = new DesiredCapabilities(); // Instantiates DesiredCapabilities object
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));
@@ -55,7 +54,5 @@ public class BaseClass {
             throw new IllegalStateException(("Driver is not iniitilized"));
         }
     }
-
-
 
 }

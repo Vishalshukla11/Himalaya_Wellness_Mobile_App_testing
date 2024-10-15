@@ -1,10 +1,13 @@
 import BasePage.BaseClass;
 import Pages.PersonalCare;
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TestPersonalCare extends BaseClass {
+    WebDriver driver;
     PersonalCare personalCare;
 
     @BeforeClass
@@ -21,19 +24,16 @@ public class TestPersonalCare extends BaseClass {
     {
         personalCare.ClickProduct();
     }
+
     @Test(priority = 3)
     public void AddproductIntoCart()
     {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);"); // Scroll down by 500 pixels
-        personalCare.WaitForElementToBeVisiable(personalCare.addbtn,10);
         personalCare.addTocartbtn();
     }
     @Test(priority = 4)
     public void TestBackbtn()
     {
-        personalCare.backbtn();
-        personalCare.WaitForElementToBeVisiable(personalCare.backbtn,10);
-        personalCare.backbtn();
+         personalCare.backbtn();
 
     }
 }
